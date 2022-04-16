@@ -15,7 +15,8 @@ export default function App() {
 
             <TouchableOpacity>
             <View style={styles.Searchbox}>
-              <MaterialIcons name="search" size={40} color="white" />
+              <MaterialIcons name="search" size={30} color="white" />
+              <Text style={styles.Holder}> Search . . .</Text>
             </View>
             </TouchableOpacity>
 
@@ -55,7 +56,7 @@ export default function App() {
                   </View>
                 </TouchableOpacity>
             </View>
-      <ScrollView>
+            
       <View style={styles.post}>
         <View style={styles.Body}>
           <View style={styles.header}>
@@ -73,35 +74,37 @@ export default function App() {
               </View>
             </View>
           </View>
-          <View>
             <Text>
-              Beautiful Home Office design a Software Engineer can come up with... read more
+              Beautiful Home Office design a Software Designer can come up with... read more
             </Text>
             <Image
               style={styles.Image}
+             // resizeMode="repeat"
               source={require('./assets/HomeOffice.jpg')}
             />
           </View>
-        </View>
         <View style={styles.footer}>
-          <TouchableOpacity style={styles.footerButton1}>
+
+          <TouchableOpacity>
               <View style={styles.Like}>
                  <AntDesign name="like2" size={24} color="#455A64" />
               </View> 
-          </TouchableOpacity>  
-          <TouchableOpacity style={styles.footerButton2}>  
+          </TouchableOpacity> 
+
+          <TouchableOpacity>  
               <View style={styles.Comment}> 
                  <FontAwesome5 name="comment-alt" size={24} color="#455A64" />
               </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.footerButton3}>  
+
+          <TouchableOpacity>  
               <View style={styles.Share}>
                  <MaterialCommunityIcons name="share-outline" size={30} color="#455A64" /> 
               </View>
           </TouchableOpacity>
+
         </View>
       </View>
-      </ScrollView>               
     <StatusBar style="auto" />
  </View>
   );
@@ -110,6 +113,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    position:"absolute",
     backgroundColor: '#EEEEEE',
     alignItems: 'center',
   },
@@ -119,17 +123,25 @@ const styles = StyleSheet.create({
     height: "15%",
     borderColor: '#E0E0E0',
     backgroundColor: "#303F9F", 
-    alignItems: "center",   
+    alignItems: "center",
+    justifyContent:"space-around",   
+},
+Content:{
+   alignItems:"center",
+   justifyContent:"space-around",
 },
 UpperContent:{
-
-  bottom:10,
-  width: "100%",
-  height: 70, 
-  flexDirection:"row",
-  justifyContent:"space-evenly",
-  alignItems: "center",
-  right:100,
+  height: 100,
+  bottom: 24,
+  paddingLeft: 10,
+  width: '100%',
+  borderTopWidth: 1,
+  borderTopColor: '#E0E0E0',
+  alignContent: 'center',
+  flexDirection: 'row',
+  alignItems:"center" ,
+  justifyContent:"space-between",
+  right: 70,
 },
 LowerContent:{
   bottom:40,
@@ -155,19 +167,28 @@ logo:{
   fontSize:30,
   fontWeight:"bold",
   fontStyle:"normal",
-  margin: 200,
+  margin: 50,
+  justifyContent:"flex-start",
 },
 Searchbox:{
-  height:40,
-  width: '60%',
+  top:4,
+  height:30,
+  width: '130%',
   flexDirection:"row",
   justifyContent: "flex-start",
   backgroundColor:"#1B1C5D",
   alignItems:"center",
   borderRadius:10,
   margin: 15,
+  right:30,
+},
+Holder:{
+  color:'#6666',
+  fontSize:20,
+  fontStyle:"italic"
 },
 menu:{
+  top:2,
   height:40,
   width: '70%',
   flexDirection:"row",
@@ -176,6 +197,7 @@ menu:{
   alignItems:"center",
   borderRadius:10,
   margin: 10,
+  left:78,
 },
 home:{
   height:20,
@@ -188,7 +210,7 @@ home:{
   margin: 10,
 },
 post: {
-  position:"relative",
+  marginBottom:3,
   backgroundColor: '#fff',
   borderColor: '#E0E0E0',
   borderWidth: 1,
@@ -198,6 +220,8 @@ post: {
 },
 Body: {
   padding: 10,
+  position:"relative",
+  justifyContent:"space-between",
 },
 profile: {
   width: 60,
@@ -220,7 +244,7 @@ date: {
 },
 Image: {
   width: '100%',
-  height: 200,
+  height:300,
 },
 footer: {
   height: 40,
@@ -229,10 +253,12 @@ footer: {
   backgroundColor: '#ECEFF1',
   borderTopWidth: 1,
   borderTopColor: '#E0E0E0',
-  alignContent: 'space-between',
-  flexDirection: 'row', 
+  alignContent: 'center',
+  flexDirection: 'row',
+  alignItems:"center" ,
+  justifyContent:"space-around",
 },
-footerButton1: {
+footerButton: {
   alignItems: 'center',
   height: 30,
   width:30,
@@ -240,15 +266,12 @@ footerButton1: {
   marginTop: 5,
 
 },
-Like: {
-  bottom:16,
-  marginLeft: 50,
-  color: 'black',
+Like: {  
   fontWeight: 'bold',
-  height:"100%",
-  width: '165%',
+  height:"110%",
+  width: '90%',
   flexDirection:"row",
-  justifyContent: "flex-start",
+  justifyContent: "space-around",
   backgroundColor:"#6666",
   alignItems:"center",
   borderRadius:15,
@@ -256,29 +279,22 @@ Like: {
   
 },
 Comment: {
-  bottom:13,
-  marginLeft: 155,
-  color: 'black',
   fontWeight: 'bold',
-  height:"80%",
-  width: '29%',
+  height:"100",
+  width: '90%',
   flexDirection:"row",
-  justifyContent: "flex-start",
+  justifyContent: "space-around",
   backgroundColor:"#6666",
   alignItems:"center",
   borderRadius:15,
-  margin: 15,
-
+  margin:15,
 },
 Share: {
-  bottom:14,
-  marginLeft: 139,
-  color: 'black',
   fontWeight: 'bold',
-  height:"85%",
-  width: '30%',
+  height:"100%",
+  width: '90%',
   flexDirection:"row",
-  justifyContent: "flex-start",
+  justifyContent: "space-around",
   backgroundColor:"#6666",
   alignItems:"center",
   borderRadius:15,
